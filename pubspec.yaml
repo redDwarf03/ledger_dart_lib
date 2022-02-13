@@ -1,8 +1,8 @@
-name: ledger_lib_dart
-description: Ledger dart library for Flutter (web mode). This library aims to provide a easy way to communicate with Ledger Nano S key based on HID Protocol)
+name: ledger_dart_lib
+description: Ledger dart library for Flutter. This library aims to provide a easy way to communicate with Ledger devices.
 homepage: https://github.com/reddwarf03/ledger_dart_lib
 
-version: 0.0.1
+version: 0.1.0
 
 environment:
   sdk: ">=2.15.1 <3.0.0"
@@ -11,6 +11,9 @@ dependencies:
 
   # Utilities for converting between data representations. Provides a number of Sink, Codec, Decoder, and Encoder types
   convert: ^3.0.1
+
+  flutter:
+    sdk: flutter
 
   # Dart wrapper via dart:js for https://wicg.github.io/webhid/
   web_hid: ^0.2.1+1
