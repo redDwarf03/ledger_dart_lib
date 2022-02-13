@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:ledger_dart_lib/ledger_lib_dart.dart';
+import 'package:ledger_dart_lib/ledger_dart_lib.dart';
 import 'package:ledget_dart_lib_example/service_locator.dart';
 
 void main() {
