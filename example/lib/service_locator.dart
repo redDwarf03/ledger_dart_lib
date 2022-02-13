@@ -1,6 +1,6 @@
 // Package imports:
 import 'package:get_it/get_it.dart';
-import 'package:ledger_dart_lib/ledger_lib_dart.dart';
+import 'package:ledger_dart_lib/ledger_dart_lib.dart';
 
 GetIt sl = GetIt.instance;
 
