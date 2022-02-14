@@ -1,4 +1,6 @@
 // Dart imports:
+// ignore_for_file: avoid_web_libraries_in_flutter
+
 import 'dart:async';
 import 'dart:js' show allowInterop;
 import 'dart:js_util' show getProperty;
