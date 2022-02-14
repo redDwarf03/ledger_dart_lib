@@ -16,11 +16,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    var mode = ThemeMode.light;
+
     return MaterialApp(
       title: 'Ledger Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData.from(colorScheme: const ColorScheme.light()),
+      darkTheme: ThemeData.from(colorScheme: const ColorScheme.dark()),
+      themeMode: mode,
       home: const MyHomePage(title: 'Ledger Demo Home Page'),
     );
   }
@@ -81,18 +84,26 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           children: <Widget>[
+            const SizedBox(
+              height: 10,
+            ),
             ElevatedButton(
                 child: const Text(
-                  'getAppAndVersion',
+                  'get App And Version From Nano S',
                 ),
                 onPressed: () async {
                   await sl
                       .get<LedgerNanoSModel>()
                       .connectLedger(getAppAndVersion);
                 }),
-            const Text(
-              'Response',
+            const SizedBox(
+              height: 10,
             ),
+            response != ''
+                ? const Text(
+                    'Response',
+                  )
+                : const SizedBox(),
             const SizedBox(
               height: 10,
             ),
