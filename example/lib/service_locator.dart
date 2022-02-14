@@ -5,8 +5,8 @@ import 'package:ledger_dart_lib/ledger_dart_lib.dart';
 GetIt sl = GetIt.instance;
 
 Future<void> setupServiceLocator() async {
-  if (sl.isRegistered<LedgerNanoSModel>()) {
-    sl.unregister<LedgerNanoSModel>();
+  if (sl.isRegistered<LedgerNanoSImpl>()) {
+    sl.unregister<LedgerNanoSImpl>();
   }
-  sl.registerLazySingleton<LedgerNanoSModel>(() => LedgerNanoSModel());
+  sl.registerLazySingleton<LedgerNanoSImpl>(() => LedgerNanoSImpl());
 }

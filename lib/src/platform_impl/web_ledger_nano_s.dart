@@ -13,9 +13,10 @@ import 'package:convert/convert.dart';
 import 'package:web_hid/web_hid.dart';
 
 // Project imports:
+import 'package:ledger_dart_lib/src/platform_impl/abstract_ledger_nano_s.dart';
 import 'package:ledger_dart_lib/src/utils.dart';
 
-class LedgerNanoSModel extends ChangeNotifier {
+class LedgerNanoSImpl extends AbstractLedgerNanoS {
   HidDevice? _device;
 
   List<int> data = List.empty(growable: true);
@@ -68,6 +69,7 @@ class LedgerNanoSModel extends ChangeNotifier {
     }
   }
 
+  @override
   String getLabelFromCode() {
     String labelResponse = '';
     String blockParsedHex = hex.encode(blockParsed);
@@ -102,6 +104,7 @@ class LedgerNanoSModel extends ChangeNotifier {
     return labelResponse;
   }
 
+  @override
   Future<void> connectLedger(Uint8List apdu) async {
     blockParsed = List.empty(growable: true);
     if (_device != null) {
@@ -188,6 +191,7 @@ class LedgerNanoSModel extends ChangeNotifier {
     }
   }
 
+  @override
   Future<void> disconnectLedger() async {
     hid.subscribeDisconnect(allowInterop((event) {}));
   }

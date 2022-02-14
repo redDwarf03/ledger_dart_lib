@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void update() {
     setState(() {
       var readBuffer = ReadBuffer(
-          Uint8List.fromList(sl.get<LedgerNanoSModel>().response)
+          Uint8List.fromList(sl.get<LedgerNanoSImpl>().response)
               .buffer
               .asByteData());
       if (readBuffer.getUint8() != 1) {
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
       String version =
           String.fromCharCodes(readBuffer.getUint8List(versionLength));
 
-      labelResponse = sl.get<LedgerNanoSModel>().getLabelFromCode();
+      labelResponse = sl.get<LedgerNanoSImpl>().getLabelFromCode();
       response = name + ' ' + version;
     });
   }
@@ -65,14 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    sl<LedgerNanoSModel>().addListener(update);
+    sl<LedgerNanoSImpl>().addListener(update);
   }
 
   @override
   void dispose() {
     super.dispose();
-    sl<LedgerNanoSModel>().removeListener(update);
-    sl.get<LedgerNanoSModel>().disconnectLedger();
+    sl<LedgerNanoSImpl>().removeListener(update);
+    sl.get<LedgerNanoSImpl>().disconnectLedger();
   }
 
   @override
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 onPressed: () async {
                   await sl
-                      .get<LedgerNanoSModel>()
+                      .get<LedgerNanoSImpl>()
                       .connectLedger(getAppAndVersion);
                 }),
             const SizedBox(

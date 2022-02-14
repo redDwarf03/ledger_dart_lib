@@ -1,6 +1,9 @@
 Changelog
 =========
 
+#### Version 0.1.2 (2022-02-15)
+* Multiplaftorms management
+
 #### Version 0.1.1 (2022-02-14)
 * Example : Add ledger icons
 * Readme : Fix badges
