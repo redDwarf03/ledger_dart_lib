@@ -24,6 +24,7 @@ class LedgerNanoSImpl extends AbstractLedgerNanoS {
   int lastBlockSeqId = -1;
   int dataLength = -1;
 
+  @override
   List<int> get response => blockParsed;
 
   Uint8List _makeBlock(Uint8List apdu, int blockSeqId, int totalLengthApdu) {
