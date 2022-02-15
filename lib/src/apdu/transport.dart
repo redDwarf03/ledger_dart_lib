@@ -16,6 +16,7 @@
 // Dart imports:
 import 'dart:typed_data';
 
+/// Class defines ISO/IEC 7816-4 command APDU
 Uint8List transport(
   int cla,
   int ins,

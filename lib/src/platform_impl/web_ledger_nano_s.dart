@@ -16,6 +16,7 @@
 // Dart imports:
 // ignore_for_file: avoid_web_libraries_in_flutter
 
+// Dart imports:
 import 'dart:async';
 import 'dart:js' show allowInterop;
 import 'dart:js_util' show getProperty;
@@ -40,6 +41,16 @@ class LedgerNanoSImpl extends AbstractLedgerNanoS {
   List<int> blockParsed = List.empty(growable: true);
   int lastBlockSeqId = -1;
   int dataLength = -1;
+
+  /// Length of a block
+  final int blockSize = 64;
+
+  /// Legnth of the command data when the Block Seq Id > 1
+  final int blockDataSize = 59;
+
+  /// Legnth of the command data when the Block Seq Id = 1
+  /// The first block contains the number of bytes of command data to follow
+  final int firstBlockDataSize = 57;
 
   @override
   List<int> get response => blockParsed;
@@ -72,17 +83,18 @@ class LedgerNanoSImpl extends AbstractLedgerNanoS {
 
     if (lastBlockSeqId == 0) {
       dataLength = readBuffer.getUint16(endian: Endian.big);
-      if (dataLength >= 57) {
-        data.addAll(readBuffer.getUint8List(57));
+      if (dataLength >= firstBlockDataSize) {
+        data.addAll(readBuffer.getUint8List(firstBlockDataSize));
       } else {
         data.addAll(readBuffer.getUint8List(dataLength));
       }
     } else {
-      if (dataLength > (57 + (lastBlockSeqId) * 59)) {
-        data.addAll(readBuffer.getUint8List(59));
+      if (dataLength >
+          (firstBlockDataSize + (lastBlockSeqId) * blockDataSize)) {
+        data.addAll(readBuffer.getUint8List(blockDataSize));
       } else {
-        data.addAll(readBuffer
-            .getUint8List(dataLength - (57 + (lastBlockSeqId - 1) * 59)));
+        data.addAll(readBuffer.getUint8List(dataLength -
+            (firstBlockDataSize + (lastBlockSeqId - 1) * blockDataSize)));
       }
     }
   }
@@ -167,26 +179,32 @@ class LedgerNanoSImpl extends AbstractLedgerNanoS {
     int blockSeqId = 0;
 
     while (remainingLength > 0) {
-      _apduPart = List<int>.filled(64, 0, growable: false);
+      _apduPart = List<int>.filled(blockSize, 0, growable: false);
       while (remainingLength > 0) {
         if (blockSeqId == 0) {
-          if (apdu.length > 57) {
-            _apduPart = apdu.sublist(0, 57);
+          if (apdu.length > firstBlockDataSize) {
+            _apduPart = apdu.sublist(0, firstBlockDataSize);
           } else {
             _apduPart = concatUint8List(<Uint8List>[
               apdu.sublist(0, apdu.length),
-              Uint8List.fromList(List.filled(59 - remainingLength - 2, 0))
+              Uint8List.fromList(
+                  List.filled(blockDataSize - remainingLength - 2, 0))
             ]);
           }
         } else {
-          if (remainingLength > 59) {
+          if (remainingLength > blockDataSize) {
             _apduPart = apdu.sublist(
-                57 + (59 * (blockSeqId - 1)), 57 + (59 * blockSeqId));
+                firstBlockDataSize + (blockDataSize * (blockSeqId - 1)),
+                firstBlockDataSize + (blockDataSize * blockSeqId));
           } else {
             _apduPart = concatUint8List(<Uint8List>[
-              apdu.sublist(57 + (59 * (blockSeqId - 1)),
-                  57 + (59 * (blockSeqId - 1)) + remainingLength),
-              Uint8List.fromList(List.filled(59 - remainingLength, 0))
+              apdu.sublist(
+                  firstBlockDataSize + (blockDataSize * (blockSeqId - 1)),
+                  firstBlockDataSize +
+                      (blockDataSize * (blockSeqId - 1)) +
+                      remainingLength),
+              Uint8List.fromList(
+                  List.filled(blockDataSize - remainingLength, 0))
             ]);
           }
         }

@@ -1,6 +1,10 @@
 Changelog
 =========
 
+#### Version 0.1.3 (2022-02-15)
+* Add license informations
+* Add documentation
+
 #### Version 0.1.2 (2022-02-15)
 * Multiplaftorms management
 
