@@ -18,6 +18,9 @@ dependencies:
   # Dart wrapper via dart:js for https://wicg.github.io/webhid/
   web_hid: ^0.2.1+1
 
+  # A multi-platform plugin which allows an application to interface with USB HID-Class devices on Linux, Windows, Android, and macOS.
+  hid: ^0.1.6
+
 dev_dependencies:
   flutter_lints: ^1.0.4
   # Automatically organize your dart imports

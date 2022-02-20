@@ -34,7 +34,7 @@ import 'package:web_hid/web_hid.dart';
 import 'package:ledger_dart_lib/src/platform_impl/abstract_ledger_nano_s.dart';
 import 'package:ledger_dart_lib/src/utils.dart';
 
-class LedgerNanoSImpl extends AbstractLedgerNanoS {
+class WebLedgerNanoSImpl extends AbstractLedgerNanoS {
   HidDevice? _device;
 
   List<int> data = List.empty(growable: true);

@@ -85,6 +85,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.1"
+  ffi:
+    dependency: transitive
+    description:
+      name: ffi
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
   file:
     dependency: transitive
     description:
@@ -118,6 +125,48 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.2"
+  hid:
+    dependency: "direct main"
+    description:
+      name: hid
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.6"
+  hid_android:
+    dependency: transitive
+    description:
+      name: hid_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.3"
+  hid_linux:
+    dependency: transitive
+    description:
+      name: hid_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
+  hid_macos:
+    dependency: transitive
+    description:
+      name: hid_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
+  hid_platform_interface:
+    dependency: transitive
+    description:
+      name: hid_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.8"
+  hid_windows:
+    dependency: transitive
+    description:
+      name: hid_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   http_multi_server:
     dependency: transitive
     description:
@@ -216,6 +265,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.8.1"
+  plugin_platform_interface:
+    dependency: transitive
+    description:
+      name: plugin_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.2"
   pool:
     dependency: transitive
     description:
@@ -398,3 +454,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.16.0-100.0.dev <3.0.0"
+  flutter: ">=2.5.0"
