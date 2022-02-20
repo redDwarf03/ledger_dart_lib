@@ -1,6 +1,9 @@
 Changelog
 =========
 
+#### Version 0.1.4 (2022-02-20)
+* Add macOs hidapi service
+
 #### Version 0.1.3 (2022-02-15)
 * Add license informations
 * Add documentation
