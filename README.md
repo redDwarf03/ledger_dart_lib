@@ -9,13 +9,13 @@ Library under construction.
 ## Status (2022/03/02)
 - For the moment, only Nano S is considered by this library
 - The interaction with Nano S is ok in web mode (WebLedgerNanoSImpl)
--- Based on the library Web_HID (https://pub.dev/packages/web_hid)
+  - Based on the library Web_HID (https://pub.dev/packages/web_hid)
 - The interaction with Nano S is under construction for desktop (LedgerNanoSImpl)
--- Based on the library hid (https://pub.dev/packages/hid)
--- With an example that works: https://gist.github.com/minhnn-mvn/d87b153679134a07a3580da4933b3b33
--- we will need to import this file (from hid) https://github.com/rustui/hid/blob/main/hid_macos/lib/generated_bindings.dart
+  - Based on the library hid (https://pub.dev/packages/hid)
+  - With an example that works: https://gist.github.com/minhnn-mvn/d87b153679134a07a3580da4933b3b33
+  - We will need to import this file (from hid) https://github.com/rustui/hid/blob/main/hid_macos/lib/generated_bindings.dart
 - Issue with HID Desktop
--- When I copied the example in HID project (hid/example/lib folder) and when i execute this, it works
+  - When I copied the example in HID project (hid/example/lib folder) and when i execute this, it works
 ```
 void main() {
   Uint8List transport(
