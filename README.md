@@ -3,10 +3,10 @@
 # ledger_dart_lib
 Ledger dart library for Flutter. This library aims to provide a easy way to communicate with Ledger devices.
 
-# Informations 
+## Informations 
 Library under construction.
 
-# Status (2022/03/02)
+## Status (2022/03/02)
 - For the moment, only Nano S is considered by this library
 - The interaction with Nano S is ok in web mode (WebLedgerNanoSImpl)
 -- Based on the library Web_HID (https://pub.dev/packages/web_hid)
@@ -58,10 +58,10 @@ specifically, for macOS you need to add https://github.com/libusb/hidapi/blob/ma
 
 I welcome contributions from anyone and is grateful for even the smallest of improvement.
 
-# Todo
-[ ] Migrate project to plugin architecture with multiplatforms management
-[ ] Fix the integration of desktop HID method
-[ ] Test with windows, linux after macOS implementation
+## Todo
+- [ ] Migrate project to plugin architecture with multiplatforms management
+- [ ] Fix the integration of desktop HID method
+- [ ] Test with windows, linux after macOS implementation
 
 
 
