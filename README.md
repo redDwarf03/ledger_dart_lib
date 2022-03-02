@@ -51,6 +51,7 @@ package:hid_sse/ledger_transport_hidapi.dart:303
 #3      _runMainZoned.<anonymous closure>.<anonymous closure> (dart:ui/hooks.dart:128:38)
 ```
 in the first case, i'm in the hid environment (= hid project from github) with all dart files... perhaps should i import other files in my new project... 
+
 The author of the example said
 "if you use the hid library, you will also have native C implementation of hidapi
 if you do not use hid library, you need to add C code to your project
