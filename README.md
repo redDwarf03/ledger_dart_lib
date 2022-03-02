@@ -62,6 +62,7 @@ I welcome contributions from anyone and is grateful for even the smallest of imp
 - [ ] Migrate project to plugin architecture with multiplatforms management
 - [ ] Fix the integration of desktop HID method
 - [ ] Test with windows, linux after macOS implementation
+- [ ] Explore Nano X implementation
 
 
 
